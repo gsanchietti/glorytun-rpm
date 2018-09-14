@@ -26,8 +26,9 @@ ninja-build -C build
 mkdir -p %{buildroot}/usr/lib/systemd/system
 mkdir -p %{buildroot}/usr/lib/systemd/network
 mkdir -p %{buildroot}/usr/local/bin
-#find systemd/ -name 'glorytun@.service' -exec  cp -v '{}' %{buildroot}/usr/lib/systemd/system/ \;
+mkdir -p %{buildroot}/etc/glorytun
 cp systemd/glorytun\@.service.in %{buildroot}/usr/lib/systemd/system/glorytun\@.service
+sed -i 's|@bindir@|/usr/local/bin|' %{buildroot}/usr/lib/systemd/system/glorytun\@.service
 cp systemd/glorytun.network %{buildroot}/usr/lib/systemd/network
 cp systemd/glorytun-client.network %{buildroot}/usr/lib/systemd/network
 cp systemd/glorytun-run %{buildroot}/usr/local/bin
@@ -39,6 +40,7 @@ cp systemd/glorytun-setup %{buildroot}/usr/local/bin
 /usr/local/bin/*
 /usr/lib/systemd/network/*
 /usr/lib/systemd/system/*
+%dir /etc/glorytun
 
 
 %changelog
