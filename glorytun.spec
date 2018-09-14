@@ -33,6 +33,7 @@ cp systemd/glorytun.network %{buildroot}/usr/lib/systemd/network
 cp systemd/glorytun-client.network %{buildroot}/usr/lib/systemd/network
 cp systemd/glorytun-run %{buildroot}/usr/local/bin
 cp systemd/glorytun-setup %{buildroot}/usr/local/bin
+cp build/glorytun %{buildroot}/usr/local/bin
 
 
 %files
